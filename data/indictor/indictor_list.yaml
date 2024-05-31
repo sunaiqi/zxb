@@ -1,0 +1,44 @@
+case_common:
+  allureEpic: 指标状态数量接口
+  allureFeature: 指标状态数量模块
+  allureStory: 指标状态数量接口
+
+indictor_list_01:
+    host: ${{host()}}
+    url: /api/zz-indicator/get-indicator-status-count-response
+    method: GET
+    detail: 指标状态数量查询
+    headers:
+      # 这里cookie的值，写的是存入缓存的名称
+      Zz-Auth: $cache{login_cookie}
+    # 请求的数据，是 params 还是 json、或者file、data
+    requestType: None
+    # 是否执行，空或者 true 都会执行
+    is_run:
+    data:
+    dependence_case: False
+    # 依赖的数据
+    dependence_case_data:
+    assert:
+      status_code : 200
+      # 断言接口状态码
+      code:
+        jsonpath: $.code
+        type: ==
+        value: 200
+        # 断言接口响应时，可以为空
+        AssertType:
+        message: "code 断言为 200"
+
+
+
+
+
+
+
+
+
+
+
+
+
