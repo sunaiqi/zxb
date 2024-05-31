@@ -36,6 +36,6 @@ class TestIndictorList:
                response_data=res.response_data,
                status_code=res.status_code).assert_type_handle()
 
-
+    a =  "assess"
 if __name__ == '__main__':
     pytest.main(['test_test_indictor_list.py', '-s', '-W', 'ignore:Module already imported:pytest.PytestWarning'])
